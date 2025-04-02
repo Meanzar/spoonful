@@ -2,7 +2,6 @@ export type User = {
     id: string; // donnée backend
     username: string; // montrable
     email: string; // montrable
-    password: string; // donnée backend
     profile_picture: string; // montrable
     banner_image: string; // montrable
     badges: string[]; // montrable

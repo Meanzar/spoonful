@@ -1,22 +1,21 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { postData } from '@/lib/api'
 import React, { useState } from 'react'
+import { handleInput, handleCreate } from '@/lib/service'
 
 export default function RegisterPage() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const base_url = "/api/auth/register"
-    
-    const handleButton = async () => {
-        postData(base_url, {email, password})
-    }  
 
-    function handleChange(set: any, e: any) {
-           set(e.target.value)
+    const handleButton = async (e: React.FormEvent) => {
+        e.preventDefault()
+        await handleCreate(base_url, {email, password})
     }
-
+        
+    console.log(handleButton)
+    
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -28,7 +27,7 @@ export default function RegisterPage() {
                     <Input 
                         type="email" 
                         value={email} 
-                        onChange={(e) => handleChange(setEmail, e)} 
+                        onChange={(e) => handleInput(setEmail, e)} 
                         className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
@@ -38,7 +37,7 @@ export default function RegisterPage() {
                     <Input 
                         type="password" 
                         value={password} 
-                        onChange={(e) => handleChange(setPassword, e)} 
+                        onChange={(e) => handleInput(setPassword, e)} 
                         className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>

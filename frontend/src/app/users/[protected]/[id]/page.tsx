@@ -32,13 +32,16 @@ export default function UserPage({params}: {params: Params}) {
         }
         getData(base_url + userId).then((data) => (setUser(data[0])))
     }, [userId])
-    console.log(user)
+    console.log('user', user)
   return (
     <div>
-        {user?.username}
-        <Link href={'/users/connect/' + user?.id + "/dashboard"}>
-            <h1>Dashboard</ h1>
-        </Link>
+      <Link href={'/users/connect/' + user?.id + "/dashboard"}>
+        <h1>Dashboard</ h1>
+      </Link>
+        <h2>{user?.username}</h2>
+      <Link href={'/users/connect/' + user?.id + "/edit"}>
+        Edit
+      </Link>
     </div>
   )
 }

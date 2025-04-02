@@ -10,7 +10,6 @@ export default function ProtectedPage({ children }: { children: React.ReactNode 
     const verifySession = async () => {
 
       const session = await checkSession();
-
       if (!session) {
         router.push("/auth/login");
         return;
