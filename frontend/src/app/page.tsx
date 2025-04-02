@@ -1,105 +1,224 @@
 import Image from "next/image";
-import TasksPage from "./users/[id]/tasks/page";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center min-h-screen gap-6 sm:p-12 font-sans mx-4 sm:mx-8">
+        <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left pl-12">
+          <Image
+            className="dark:invert"
+            src="/spoonfitLogo.svg"
+            alt="SpoonFit Logo"
+            width={80}
+            height={80}
+          />
+          <h1 className="text-7xl font-extrabold leading-tight text-gray-900 dark:text-white">
+            Plan, Track & <br /> Manage Your Energy
+          </h1>
+          <p className="text-xl text-gray-600">
+            Your life shouldn’t be more complicated than it already is. Spoonie Day
+            offers a simple and intuitive interface, with AI-driven insights to help
+            you identify patterns in your activities, optimize your energy, and plan
+            your days more effectively.
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="flex gap-4 items-center flex-col sm:flex-row">
+            <a
+              className="rounded-full border border-transparent transition-colors flex items-center justify-center bg-black text-white gap-2 hover:bg-blue-700 font-semibold text-base h-12 px-6 sm:w-auto"
+              href="/auth/login"
+            >
+              Login
+            </a>
+            <a
+              className="rounded-full border border-gray-300 dark:border-gray-600 transition-colors flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-transparent font-semibold text-base h-12 px-6 w-full sm:w-auto"
+              href="#"
+            >
+              Explore More
+            </a>
+          </div>
+
+          <div className="border border-black rounded-md p-6 mt-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="flex flex-col items-left">
+                <Image
+                  className="dark:invert"
+                  src="/sun.svg"
+                  alt="SpoonFit Logo"
+                  width={28}
+                  height={20}
+                />
+                <p className="text-sm text-gray-600">
+                  Content for the first column goes here.
+                </p>
+              </div>
+              <div className="flex flex-col items-left">
+                <Image
+                  className="dark:invert"
+                  src="/eyes.svg"
+                  alt="SpoonFit Logo"
+                  width={28}
+                  height={20}
+                />
+                <p className="text-sm text-gray-600">
+                  Content for the second column goes here.
+                </p>
+              </div>
+              <div className="flex flex-col items-left">
+                <Image
+                  className="dark:invert"
+                  src="/star.svg"
+                  alt="SpoonFit Logo"
+                  width={28}
+                  height={20}
+                />
+                <p className="text-sm text-gray-600">
+                  Content for the third column goes here.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+
+        <div className="flex justify-center w-full max-w-lg mx-auto sm:w-3/4">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            className="dark:invert"
+            src="/spoonHome.svg"
+            alt="Spoon Home"
+            width={1000}
+            height={1000}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 items-center gap-12 w-full sm:px-20">
+        <div className="flex justify-center items-center">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/desktop.svg"
+            alt="Example SVG"
+            width={800}
+            height={1000}
+            className="object-contain"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        </div>
+
+        <div className="grid gap-8 text-center sm:text-left mx-12">
+          <h2 className="text-sm font-semibold text-gray-600">FEATURES</h2>
+          <h1 className="text-3xl font-bold text-[#5FD4B9]">App Features</h1>
+
+          <div className="grid grid-cols-[auto_1fr] items-center gap-4">
+            <Image
+              src="/star-05.svg"
+              alt="Easy Planning Icon"
+              width={28}
+              height={40}
+              className="object-contain"
+            />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Easy Planning
+              </h3>
+              <p className="text-base text-gray-600">
+                Simplify your day with intuitive planning tools designed to reduce complexity and optimize your energy. Our app makes it easy to schedule tasks, avoid overload, and strike the perfect balance between work and rest.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-[auto_1fr] items-center gap-4">
+            <Image
+              src="/cube-02.svg"
+              alt="Simple Interface Icon"
+              width={28}
+              height={40}
+              className="object-contain"
+            />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Simple Interface
+              </h3>
+              <p className="text-base text-gray-600">
+                Enjoy a clean, user-friendly interface tailored for effortless navigation. No complex menus or clutter—just straightforward functionality to help you stay organized and productive every day.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-[auto_1fr] items-center gap-4">
+            <Image
+              src="/cube-04.svg"
+              alt="ML-Driven Insights Icon"
+              width={28}
+              height={40}
+              className="object-contain"
+            />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                ML-Driven Insights
+              </h3>
+              <p className="text-base text-gray-600">
+                Harness the power of machine learning to uncover patterns and trends in your daily activities. SpoonFul analyzes your behavior to provide actionable insights that guide you towards smarter decision-making and improved energy management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer className="bg-gray-900 text-white py-8 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center sm:items-start">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/spoonfitLogo.svg"
+                alt="SpoonFit Logo"
+                width={40}
+                height={40}
+                className="dark:invert"
+              />
+              <span className="text-2xl font-bold">SpoonFul</span>
+            </div>
+            <p className="text-gray-400 text-sm mt-4">
+              Your partner in planning, tracking, and managing your energy.
+            </p>
+          </div>
+
+          <Card className="bg-gray-800">
+            <CardHeader>
+              <CardTitle className="text-lg text-white">Subscribe to Our Newsletter</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-400 mb-4">
+                Get the latest updates and tips directly in your inbox.
+              </p>
+              <form className="flex gap-2">
+                <Input
+                  type="email"
+                  placeholder="Your email"
+                  className="text-gray-900"
+                />
+                <Button className="bg-[#5FD4B9] text-white hover:bg-[#4dbb9d]">
+                  Subscribe
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+
+          <div className="flex flex-col items-center sm:items-start">
+            <h3 className="text-lg font-semibold">Contact Us</h3>
+            <p className="text-sm text-gray-400 mt-2">
+              Have questions? We’re here to help.
+            </p>
+            <p className="text-sm text-gray-400 mt-2">
+              Email: <a href="mailto:contact@spoonful.com" className="text-[#5FD4B9]">contact@spoonful.com</a>
+            </p>
+            <p className="text-sm text-gray-400 mt-2">Phone: +1 234 567 890</p>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center text-xs text-gray-500 border-t border-gray-700 pt-4">
+          © 2025 SpoonFul. All rights reserved.
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
