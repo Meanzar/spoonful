@@ -1,26 +1,41 @@
 export type User = {
-    id: string;
-    username: string;
-    email: string;
-    password: string;
-    profile_picture: string;
-    banner_image: string;
-    badges: string[];
-    favorites_public: boolean;
-    role: 'admin' | 'member' | 'viewer';
-    banned: boolean;
-    created_at: string;
-    updated_at: string;
+    id: string; // donnée backend
+    username: string; // montrable
+    email: string; // montrable
+    password: string; // donnée backend
+    profile_picture: string; // montrable
+    banner_image: string; // montrable
+    badges: string[]; // montrable
+    favorites_public: boolean; // montrable
+    role: 'admin' | 'member' | 'viewer'; // donnée backend
+    banned: boolean; // donnée backend
+    created_at: string; // montrable
+    updated_at: string; // montrable
 }
-export type Spoons = {
-    id: string;
-    user_id: string;
-    total: number;
+export type Task = {
+    id: string; // donnée backend
+    user_id: string; // donnée backend
+    title: string; // montrable
+    content: string; // montrable
+    done: boolean; // montrable
+    created_at: string; // montrable
+    updated_at: string; // montrable
+}
+
+export type Spoon = {
+    id: string; // donnée backend
+    user_id: string; // donnée backend
+    total: number; // montrable
 }
 export type Mood = {
-    id: string;
-    user_id: string;
-    note: number;
-    created_at: string;
-    updated_at: string;
+    id: string; // donnée backend
+    user_id: string; // donnée backend 
+    note: number; // montrable
+    created_at: string; // montrable
+    updated_at: string; // montrable
+}
+
+export type Params = {
+    id: string; // donnée backend
+    taskId?: string; // donnée backend
 }
