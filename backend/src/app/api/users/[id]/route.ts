@@ -10,6 +10,7 @@ export async function GET(request: NextRequest,{params}: {params: Params}) {
         .from('users')
         .select('*')
         .eq('id', userId)
+        .single()
 
     if (error) {
         return new Response(error.message, {
@@ -34,7 +35,7 @@ export async function GET(request: NextRequest,{params}: {params: Params}) {
 
 
 export async function PUT(request: NextRequest, {params}: {params: Params}) {
-    const userId = params.id;
+    const userId =  params.id;
     const supabase = getSupabaseClient();
     const body = await request.json();
 

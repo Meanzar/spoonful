@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(req: Request) {
+export function middleware() {
   const origin = process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000';
   
   const res = NextResponse.next();

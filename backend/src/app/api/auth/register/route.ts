@@ -1,7 +1,6 @@
 import { getSupabaseClient } from "@/lib/supabase";
 import { NextRequest } from "next/server";
 import { faker } from '@faker-js/faker'
-import bcrypt from 'bcrypt'
 
 export async function POST(request: NextRequest) {
     const supabase = getSupabaseClient();
@@ -26,7 +25,6 @@ export async function POST(request: NextRequest) {
             });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
         const randomName = faker.person.firstName();
         const randomAvatar = faker.image.avatar();
         const randomBanner = faker.image.urlLoremFlickr()
@@ -34,7 +32,6 @@ export async function POST(request: NextRequest) {
             .from('users')
             .insert({ 
                 email: email, 
-                password: hashedPassword,
                 username: randomName, 
                 profile_picture: randomAvatar, 
                 banner_image: randomBanner,
@@ -48,7 +45,7 @@ export async function POST(request: NextRequest) {
             });
         }
 
-        return new Response(JSON.stringify("create bitch"), {
+        return new Response(JSON.stringify("User created"), {
             status: 201,
             headers: { "Content-Type": "application/json" }
         });
