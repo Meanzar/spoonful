@@ -30,3 +30,27 @@ export async function GET(request: NextRequest, {params}: {params: Params}) {
         }
     })
 }
+
+export async function PUT(request: NextRequest, {params}: {params: Params}) {
+    const taskId = params.taskId;
+    const supabase = getSupabaseClient();
+    const body = await request.json();
+
+    const { error } = await supabase
+        .from('tasks')
+        .update({ title: body.title, content: body.content, done: body.done })
+        .eq('id', taskId)
+    if (error) {
+        return new Response(error.message, {
+            status: 500
+        })
+    }
+
+    const task = JSON.stringify('Task updated');
+    return new Response(task, {
+        status: 200,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+} 

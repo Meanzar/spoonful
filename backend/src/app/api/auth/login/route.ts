@@ -1,6 +1,7 @@
 import { getSupabaseClient } from '@/lib/supabase'
 import { NextRequest } from 'next/server'
 
+
 export async function POST(request: NextRequest) {
     const supabase = getSupabaseClient();
     
@@ -23,7 +24,12 @@ export async function POST(request: NextRequest) {
                 headers: { "Content-Type": "application/json" }
             });
         }
-
+        if (error) {
+            return new Response(JSON.stringify({ error: error.message }), {
+                status: 500,
+                headers: { "Content-Type": "application/json" }
+            });
+        }
 
         const token = authData?.session?.access_token;
 

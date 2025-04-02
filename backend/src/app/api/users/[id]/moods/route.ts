@@ -7,7 +7,7 @@ export async function GET(request: NextRequest, {params}: {params: Params}) {
     const supabase = getSupabaseClient();
     
     const { data, error } = await supabase
-        .from('mood')
+        .from('moods')
         .select('*')
         .eq('user_id', userId)
 
@@ -29,5 +29,28 @@ export async function GET(request: NextRequest, {params}: {params: Params}) {
             'Content-Type': 'application/json'
         }
     })
-
 }
+export async function POST(request: NextRequest, {params}: {params: Params}) {
+    const userId = params.id;
+    const supabase = getSupabaseClient();
+    const body = await request.json();
+
+    const { error } = await supabase
+        .from('moods')  
+        .insert({ note: body.note, user_id: userId })
+        .eq('user_id', userId)
+    if (error) {
+        return new Response(error.message, {
+            status: 500
+        })
+    }
+
+    const mood = JSON.stringify('Mood register');
+    return new Response(mood, {
+        status: 201,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}
+

@@ -31,3 +31,28 @@ export async function GET(request: NextRequest,{params}: {params: Params}) {
         }
     })
 }
+
+
+export async function PUT(request: NextRequest, {params}: {params: Params}) {
+    const userId = params.id;
+    const supabase = getSupabaseClient();
+    const body = await request.json();
+
+    const { error } = await supabase
+        .from('users')
+        .update({ username: body.username, profile_picture: body?.profile_picture })
+        .eq('id', userId)
+    if (error) {
+        return new Response(error.message, {
+            status: 500
+        })
+    }
+
+    const user = JSON.stringify('User updated');
+    return new Response(user, {
+        status: 201,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}

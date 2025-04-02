@@ -30,3 +30,26 @@ export async function GET(request: NextRequest, {params}: {params: Params}) {
         }
     })
 }
+
+export async function POST(request: NextRequest, {params}: {params: Params}) {
+    const userId = params.id;
+    const supabase = getSupabaseClient();
+    const body = await request.json();
+
+    const {  error } = await supabase
+        .from('tasks')  
+        .insert({ title: body.title, content: body.content, done: false, user_id: userId })
+    if (error) {
+        return new Response(error.message, {
+            status: 500
+        })
+    }
+
+    const task = JSON.stringify('Task created');
+    return new Response(task, {
+        status: 201,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}

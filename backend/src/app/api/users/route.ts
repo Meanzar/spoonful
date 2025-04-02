@@ -6,7 +6,6 @@ export async function GET(request: NextRequest) {
     const { data, error} = await supabase
         .from('users')
         .select('*')
-    
     if (error) {
         return {
             status: 500,
