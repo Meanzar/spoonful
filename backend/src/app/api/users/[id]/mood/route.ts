@@ -7,7 +7,7 @@ export async function GET(request: NextRequest, {params}: {params: Params}) {
     const supabase = getSupabaseClient();
     
     const { data, error } = await supabase
-        .from('moods')
+        .from('mood')
         .select('*')
         .eq('user_id', userId)
 
