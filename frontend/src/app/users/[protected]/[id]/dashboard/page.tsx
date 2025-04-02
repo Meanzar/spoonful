@@ -26,7 +26,7 @@ export default function TasksPage({params}: {params: Params}) {
 
     useEffect(()=> {
         getData(base_url + userId + "/tasks/").then((data) => (setTasks(data)))
-        getData(base_url + userId + "/mood/").then((data) => (setMood(data[0])))
+        getData(base_url + userId + "/moods/").then((data) => (setMood(data)))
         getData(base_url + userId + "/spoons/").then((data) => (setSpoons(data)))
     }, [userId])
     console.log(tasks)
