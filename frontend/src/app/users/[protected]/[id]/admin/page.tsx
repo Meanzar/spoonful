@@ -8,7 +8,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         async function fetchUsers() {
-            const data = await getData("/api/admin");
+            const data = await getData("/api/users/admin");
             setUsers(data);
         }
         fetchUsers();

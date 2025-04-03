@@ -70,7 +70,7 @@ export default function LoginPage() {
 
             <div className="mt-4 text-center">
                 <p className="text-sm text-gray-600">Don't have an account? 
-                    <a href="/register" className="text-blue-600 hover:text-blue-700"> Register</a>
+                    <a href="/auth/register" className="text-blue-600 hover:text-blue-700"> Register</a>
                 </p>
             </div>
         </div>

@@ -57,25 +57,29 @@ export default function Header() {
             width={40}
             height={40}
           />
-          <span className="text-xl font-bold">SpoonFit</span>
+          <span className="text-xl font-bold">SpoonFul</span>
         </div>
 
         <nav className="flex items-center space-x-4">
           {session ? (
-            <>
-              <Link
-                href={`/users/connect/${user?.id}/dashboard`}
-                className="px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-              >
-                {user?.username}
-              </Link>
-              <Button
-                onClick={handleLogout}
-                className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
-              >
-                Logout
-              </Button>
-            </>
+           <div className="flex items-center space-x-4">
+           <Link href={`/users/connect/${user?.id}/dashboard`} className="flex items-center space-x-2">
+             <img
+               className="rounded-full"
+               src={user?.profile_picture}
+               alt='profile'
+               width={40}
+               height={40}
+             />
+             <span>{user?.username}</span>
+           </Link>
+           <Button
+             onClick={handleLogout}
+             className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+           >
+             Logout
+           </Button>
+         </div>
           ) : (
             <>
               <Link
