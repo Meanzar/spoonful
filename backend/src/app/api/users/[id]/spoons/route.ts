@@ -38,7 +38,7 @@ export async function POST(request: NextRequest, {params}: {params: Params}) {
 
     const { error } = await supabase
         .from('spoons')  
-        .insert({ spoon: body.spoon, user_id: userId })
+        .insert({ total: body.total, user_id: userId })
     if (error) {
         return new Response(error.message, {
             status: 500
