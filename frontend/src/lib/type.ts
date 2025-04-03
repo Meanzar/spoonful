@@ -36,5 +36,5 @@ export type Mood = {
 
 export type Params = {
     id: string; // donnée backend
-    taskId?: string; // donnée backend
+    dataId?: number; // donnée backend
 }

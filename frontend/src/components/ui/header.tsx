@@ -22,10 +22,8 @@ export default function Header() {
         const token = sessionStorage.getItem('token');
         if (token) {
           const sessionData = await getData('/api/auth/session', token);
-          console.log('sessiondata', sessionData);
           if (sessionData?.user.email) {
             const users: User[] = await getData(user_url);
-            console.log('users', users);
             const loggedUser = users.find(user => user.email === sessionData.user.email);
 
             if (loggedUser) {

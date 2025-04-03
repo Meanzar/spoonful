@@ -14,7 +14,6 @@ export default function RegisterPage() {
         await handleCreate(base_url, {email, password})
     }
         
-    console.log(handleButton)
     
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
