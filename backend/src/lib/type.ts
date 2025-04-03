@@ -1,5 +1,5 @@
 export type Params = {
-    id: string;
+    id?: string;
     taskId?: string;
     spoonId?: string;
     moodId?: string;
