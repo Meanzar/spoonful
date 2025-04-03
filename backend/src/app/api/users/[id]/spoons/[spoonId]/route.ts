@@ -3,7 +3,7 @@ import { Params } from '@/lib/type';
 import { NextRequest} from 'next/server'
 
 export async function GET(request: NextRequest, {params}: {params: Params}) {
-    const spoonId = params.spoonId;
+    const spoonId = params.dataId;
     const supabase = getSupabaseClient();
 
     const { data, error} = await supabase
