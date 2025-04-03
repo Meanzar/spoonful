@@ -1,7 +1,6 @@
 import { postData, putData } from './api'
 
 export function handleInput(set: any, e: any) {
-    e.preventDefault()
     set(e.target.value)
 }
 

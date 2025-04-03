@@ -34,8 +34,6 @@ export default function EditUserPage({params}: {params: Params}) {
 
 
     const handleButton = () => handleEdit(base_url + userId, {username: userName, profilePicture: profilePicture})
-    console.log(user)
-    console.log(userName)
   return (
     <div>
         <h1>Edit User</h1>

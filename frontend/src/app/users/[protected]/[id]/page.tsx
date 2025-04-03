@@ -10,7 +10,6 @@ export default function UserPage({params}: {params: Params}) {
     const base_url = '/api/users/'
     params = useParams()
     const userId = params.id;
-    console.log(userId)
     const router = useRouter();
   
     useEffect(() => {
@@ -32,7 +31,6 @@ export default function UserPage({params}: {params: Params}) {
         }
         getData(base_url + userId).then((data) => (setUser(data[0])))
     }, [userId])
-    console.log('user', user)
   return (
     <div>
       <Link href={'/users/connect/' + user?.id + "/dashboard"}>
@@ -45,5 +43,3 @@ export default function UserPage({params}: {params: Params}) {
     </div>
   )
 }
-
-"http:3000/users/1"
