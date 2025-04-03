@@ -19,7 +19,7 @@ export async function PATCH(req: Request) {
     let body;
     try {
         body = await req.json();
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: "Invalid JSON format" }, { status: 400 });
     }
 
